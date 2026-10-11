@@ -1,8 +1,22 @@
 # keepvoice
 
-Remove music from a video and keep the speech. It also removes songs that have singing, which a normal vocal remover cannot do.
+**Keep your voice. Drop their song.**
 
-Use it when a video has copyrighted music in the background (a restaurant, a shop, a car radio) and you want to publish the video with only your voice, or with music that you have a licence for.
+You film a great video in a restaurant. The food looks perfect and your take is perfect. But the speakers behind you are playing a hit song. When you upload the video, YouTube Content ID can find that song. Then the video can get a copyright claim: it can be muted, blocked, or its ad income can go to the record label.
+
+keepvoice fixes this with one command. It removes the background music and keeps what you said. It also removes songs with singers, which a normal "vocal remover" leaves in. After that, add a track from the [YouTube Audio Library](https://www.youtube.com/audiolibrary), or any music you have a licence for, and publish.
+
+```bash
+keepvoice restaurant-vlog.mp4
+```
+
+Made for:
+
+- food and travel vloggers
+- restaurant, cafe and bar reviews
+- street interviews and shop tours
+- gym, wedding and event videos
+- any video where music that is not yours plays in the background
 
 [![keepvoice demo](https://raw.githubusercontent.com/yablokolabs/keepvoice/main/docs/demo/keepvoice-demo.gif)](https://github.com/yablokolabs/keepvoice/blob/main/docs/demo/keepvoice-demo.mp4)
 
