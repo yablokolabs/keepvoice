@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - name: Install ffmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install package (CPU build of PyTorch)
+        run: |
+          uv venv --python 3.11
+          uv pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          uv pip install -e . pytest ruff
+      - name: Lint
+        run: |
+          .venv/bin/ruff check .
+          .venv/bin/ruff format --check .
+      - name: Test
+        run: .venv/bin/pytest

@@ -1,0 +1,35 @@
+[project]
+name = "keepvoice"
+version = "0.1.0"
+description = "Remove music from a video, including songs with singing, and keep the speech."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "demucs>=4.0.1",
+    "numpy",
+    "soundfile",
+    "torch>=2.0",
+    "torchaudio>=2.0",
+]
+
+[project.scripts]
+keepvoice = "keepvoice.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: runs the real separation model (downloads checkpoints)"]
+addopts = "-m 'not slow'"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

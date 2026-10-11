@@ -1,0 +1,22 @@
+# Media and model files stay local
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.th
+!docs/demo/*.mp4
+
+# Python
+__pycache__/
+*.egg-info/
+.venv/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# Node (demo-video/)
+node_modules/
+demo-video/out/
+demo-video/.videowright/
+.env
