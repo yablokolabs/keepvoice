@@ -4,22 +4,22 @@ Remove music from a video and keep the speech. It also removes songs that have s
 
 Use it when a video has copyrighted music in the background (a restaurant, a shop, a car radio) and you want to publish the video with only your voice, or with music that you have a licence for.
 
-[![keepvoice demo](docs/demo/keepvoice-demo.gif)](docs/demo/keepvoice-demo.mp4)
+[![keepvoice demo](https://raw.githubusercontent.com/yablokolabs/keepvoice/main/docs/demo/keepvoice-demo.gif)](https://github.com/yablokolabs/keepvoice/blob/main/docs/demo/keepvoice-demo.mp4)
 
-The preview has no sound. [Open the demo video with narration](docs/demo/keepvoice-demo.mp4) (38 seconds).
+The preview has no sound. [Open the demo video with narration](https://github.com/yablokolabs/keepvoice/blob/main/docs/demo/keepvoice-demo.mp4) (38 seconds).
 
 ## Install
 
 You need Python 3.10 or later, [ffmpeg](https://ffmpeg.org/download.html) and approximately 2 GB of disk space for PyTorch.
 
 ```bash
-uv tool install git+https://github.com/yablokolabs/keepvoice
+uv tool install keepvoice
 ```
 
 or
 
 ```bash
-pip install git+https://github.com/yablokolabs/keepvoice
+pip install keepvoice
 ```
 
 The first run downloads the model checkpoints (160 MB) to `~/.cache/keepvoice`.
@@ -42,7 +42,7 @@ Times are seconds (`17`, `193.4`) or clock times (`3:07`, `1:02:03.5`).
 
 ## How it works
 
-![Pipeline: extract audio, dialogue model, optional mute ranges, remux with the picture copied](docs/diagrams/pipeline.png)
+![Pipeline: extract audio, dialogue model, optional mute ranges, remux with the picture copied](https://raw.githubusercontent.com/yablokolabs/keepvoice/main/docs/diagrams/pipeline.png)
 
 1. ffmpeg extracts the audio as 44.1 kHz stereo.
 2. A dialogue model splits the audio into three stems: speech, music and effects.
@@ -51,13 +51,13 @@ Times are seconds (`17`, `193.4`) or clock times (`3:07`, `1:02:03.5`).
 
 ### Why a vocals model is not sufficient
 
-![A vocals model keeps singers with the speaker; a dialogue model puts singers in the music stem](docs/diagrams/stems.png)
+![A vocals model keeps singers with the speaker; a dialogue model puts singers in the music stem](https://raw.githubusercontent.com/yablokolabs/keepvoice/main/docs/diagrams/stems.png)
 
 Most "remove the music" tools use a model that was trained on songs. It splits a song into vocals and instruments, so it keeps all human voice. If the background music has a singer, the singer stays in the result with your voice.
 
 keepvoice uses a model that was trained on film sound, where the task is to separate dialogue from the music score and from sound effects. For that model, a singer is part of the music.
 
-More detail is in [docs/how-it-works.md](docs/how-it-works.md).
+More detail is in [docs/how-it-works.md](https://github.com/yablokolabs/keepvoice/blob/main/docs/how-it-works.md).
 
 ## Measured result
 
@@ -92,7 +92,7 @@ uv venv && uv pip install -e . pytest ruff
 
 The fast tests make a small video with ffmpeg, run the pipeline, and measure the output: the picture checksum, the length and the audio level in each time range.
 
-The diagrams and the demo video have their own instructions in [demo-video/README.md](demo-video/README.md).
+The diagrams and the demo video have their own instructions in [demo-video/README.md](https://github.com/yablokolabs/keepvoice/blob/main/demo-video/README.md).
 
 ## Credits
 
@@ -103,4 +103,4 @@ The diagrams and the demo video have their own instructions in [demo-video/READM
 
 ## License
 
-[MIT](LICENSE)
+[MIT](https://github.com/yablokolabs/keepvoice/blob/main/LICENSE)
