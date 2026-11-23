@@ -23,6 +23,9 @@ dependencies = [
     "torchaudio>=2.0",
 ]
 
+[project.optional-dependencies]
+modal = ["modal"]
+
 [project.urls]
 Homepage = "https://github.com/yablokolabs/keepvoice"
 Documentation = "https://github.com/yablokolabs/keepvoice/blob/main/docs/how-it-works.md"

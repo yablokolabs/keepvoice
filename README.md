@@ -54,6 +54,17 @@ This writes `video_voice_only.mp4` next to the input. The input file is not chan
 
 Times are seconds (`17`, `193.4`) or clock times (`3:07`, `1:02:03.5`).
 
+### Run on a GPU with Modal
+
+Without a GPU, a long video can take a long time. You can run keepvoice on a [Modal](https://modal.com) GPU instead. You need a Modal account and a token (`modal token new`).
+
+```bash
+pip install "keepvoice[modal]"
+modal run -m keepvoice.modal_app --video video.mp4
+```
+
+The options are `--fast`, `--mute 0-17,3:07-3:13.4` (a comma-separated list) and `--out PATH`. The video is uploaded to Modal, processed on one A10G GPU, and the result is written next to the input. The model checkpoints are kept in the Modal volume `keepvoice-cache`. The first run also builds the container image, so it takes more time.
+
 ## How it works
 
 ![Pipeline: extract audio, dialogue model, optional mute ranges, remux with the picture copied](https://raw.githubusercontent.com/yablokolabs/keepvoice/main/docs/diagrams/pipeline.png)
